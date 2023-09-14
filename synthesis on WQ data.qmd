@@ -1,0 +1,9 @@
+---
+title: "Synthesis on WQ data"
+format: html
+---
+```{r}
+data<-read.csv("to_Halina_groundwater_quality_data.csv")
+head(data)
+```
+
