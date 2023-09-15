@@ -1,5 +1,5 @@
 # WQ_synthesises
 
-Hi Alison, Dais was here.
+Hi Dais, I am changing this line
 
-Welcome to my README. feel free to edit anything!
+Welcome to my README. I am changing all the lines!
