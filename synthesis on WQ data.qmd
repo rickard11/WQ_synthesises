@@ -2,8 +2,61 @@
 title: "Synthesis on WQ data"
 format: html
 ---
+# Introduction
+
+## Load packages
+
+```{r}
+library(tigris)
+library(ggplot2)
+library(sf)
+library(tidyr)
+?tigris
+
+```
+
+
 ```{r}
 data<-read.csv("to_Halina_groundwater_quality_data.csv")
 head(data)
+```
+
+
+## Add county data from Tigris package
+The tigris help page is really helpful with examples [Link](https://cran.r-project.org/web/packages/tigris/readme/README.html)
+
+
+```{r}
+##tigris package worked really easily,but took 74 MB just to download CA counties
+
+##rmapshaper- reduces size of maps
+CA_Counties<- counties(state="CA",year=2000)
+ggplot(CA_Counties) + 
+  geom_sf() + 
+  theme_void()
+```
+
+
+Now we want to use the SF package to overlay the well location (Lat long) on the counties map
+
+
+
+```{r}
+#This does not work there is a geometry type
+#my_sf <- st_as_sf(data, coords = c('lon', 'lat'))
+#str(my_sf)
+#my_sf_clean <- my_sf %>% 
+  drop_na(my_sf)
+
+?drop_na
+#unique(my_sf$TDS_mgL)
+
+#my_sf <- st_set_crs(my_sf, value=my_sf$TDS_mgL)
+
+#Plot it:
+
+#ggplot(my_sf) + 
+  geom_sf(aes(color = cluster))
+
 ```
 
